@@ -5,47 +5,36 @@ using UnityEngine;
 public class SceneHandler : MonoBehaviour
 {
 
-    public float audioDelay;
-    public float narrationBuffer = 1;
-
     public GameObject location1;
     public GameObject location2;
     public GameObject location3;
 
-    public AudioSource music;
+    public LocationHandler location1handler;
+    public LocationHandler location2handler;
+    public LocationHandler location3handler;
 
-    public AudioSource scene1narration;
-    public AudioSource scene1effect;
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
 
-        StartCoroutine(ExecuteAfterTime(audioDelay, scene1narration, scene1effect));
-
-    }
-
-    IEnumerator ExecuteAfterTime(float time, AudioSource narration, AudioSource effect)
-    {
-        yield return new WaitForSeconds(time);
-
-        music.volume /= 4;
-        if (effect != null) effect.volume /= 4;
-
-        yield return new WaitForSeconds(narrationBuffer);
-
-        narration.Play();
-
-        yield return new WaitForSeconds(narration.clip.length + narrationBuffer);
-
-        music.volume *= 4f;
-        if (effect != null) effect.volume *= 4;
+        location2.SetActive(false);
+        location3.SetActive(false);
 
     }
     
     // Update is called once per frame
     void Update()
     {
-        
+        if (location1handler.finished)
+        {
+            location1.SetActive(false);
+            location2.SetActive(true);
+        }
+
+        if (location2handler.finished)
+        {
+            location2.SetActive(false);
+            location3.SetActive(true);
+        }
+
     }
 }
