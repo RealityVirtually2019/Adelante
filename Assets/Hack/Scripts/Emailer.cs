@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
  
-public class Email : MonoBehaviour {
+public class Emailer : MonoBehaviour {
 
     public bool debug = false;
 
