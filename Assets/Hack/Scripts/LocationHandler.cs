@@ -9,20 +9,23 @@ public class LocationHandler : MonoBehaviour
     public float narrationBuffer = 1;
     public float locationDelay = 10;
 
-    public AudioSource music;
-
     public AudioSource narration;
     public AudioSource effect;
 
     public bool started = false;
     public bool finished = false;
 
+
+    private AudioSource music;
+
+
     public void StartLocation()
     {
 
         started = true;
-        //StartCoroutine(ExecuteAfterTime(audioDelay, narration, effect));
-        StartCoroutine(DebugTime());
+        music = GameObject.Find("SceneHandler").GetComponent<AudioSource>();
+        StartCoroutine(ExecuteAfterTime(audioDelay, narration, effect));
+        //StartCoroutine(DebugTime());
 
     }
 
@@ -34,11 +37,16 @@ public class LocationHandler : MonoBehaviour
         music.volume /= 4;
         if (effect != null) effect.volume /= 4;
 
-        yield return new WaitForSeconds(narrationBuffer);
+        if (narration != null)
+        {
 
-        narration.Play();
+            yield return new WaitForSeconds(narrationBuffer);
 
-        yield return new WaitForSeconds(narration.clip.length + narrationBuffer);
+            narration.Play();
+
+            yield return new WaitForSeconds(narration.clip.length + narrationBuffer);
+
+        }
 
         music.volume *= 4f;
         if (effect != null) effect.volume *= 4;
