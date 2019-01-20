@@ -16,11 +16,10 @@ public class LocationHandler : MonoBehaviour
 
     public bool finished = false;
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartLocation()
     {
 
-        // StartCoroutine(ExecuteAfterTime(audioDelay, narration, effect));
+        StartCoroutine(ExecuteAfterTime(audioDelay, narration, effect));
 
     }
 

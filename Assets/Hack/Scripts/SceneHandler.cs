@@ -14,14 +14,10 @@ public class SceneHandler : MonoBehaviour
 
     private static SceneHandler sh = null;
 
-    public GameObject location1;
-    public GameObject location2;
-    public GameObject location3;
+    public GameObject[] locations = new GameObject[9];
+    private LocationHandler[] locationHandlers = new LocationHandler[9];
 
-    private LocationHandler location1handler;
-    private LocationHandler location2handler;
-    private LocationHandler location3handler;
-
+    private int locationIdx = 0;
 
     void Awake()
     {
@@ -30,12 +26,15 @@ public class SceneHandler : MonoBehaviour
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
-        location1handler = location1.GetComponent<LocationHandler>();
-        location2handler = location2.GetComponent<LocationHandler>();
-        location3handler = location3.GetComponent<LocationHandler>();
+        foreach( GameObject location in locations)
+        {
+            locationIdx++;
+            location.SetActive(false);
+            locationHandlers[locationIdx] = location.GetComponent<LocationHandler>();
+        }
 
-        location2.SetActive(false);
-        location3.SetActive(false);
+        locations[locationIdx].SetActive(true);
+        locationHandlers[locationIdx].StartLocation();
 
     }
     
@@ -44,20 +43,18 @@ public class SceneHandler : MonoBehaviour
     void Update()
     {
 
-        if (location1handler.finished)
+        if (locationHandlers[locationIdx].finished)
         {
-            location1.SetActive(false);
-            location2.SetActive(true);
+            locations[locationIdx].SetActive(false);
+            locationIdx++;
+            locations[locationIdx].SetActive(true);
+            locationHandlers[locationIdx].StartLocation();
         }
-        else if (location2handler.finished)
-        {
-            location2.SetActive(false);
-            location3.SetActive(true);
-        }
-        else if (location3handler.finished)
-        {
-            SteamVR_LoadLevel.Begin("Adelante Scene 2");
-        }
+
+        //else if (location3handler.finished)
+        //{
+        //    SteamVR_LoadLevel.Begin("Adelante Scene 2");
+        //}
 
     }
 
