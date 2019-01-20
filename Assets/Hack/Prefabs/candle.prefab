@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flame: {fileID: 4269156365423083972}
-  light: {fileID: 10873944}
+  flameLight: {fileID: 10873944}
 --- !u!114 &4274252768502169337
 MonoBehaviour:
   m_ObjectHideFlags: 0

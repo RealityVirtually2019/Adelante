@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Valve.VR.InteractionSystem;
 
 public class Candle : MonoBehaviour
 {
     public GameObject flame;
-    public Light light;
+    public Light flameLight;
 
     private bool lighting = false;
     private bool lit = false;
@@ -20,11 +18,6 @@ public class Candle : MonoBehaviour
         lighting = true;
 	}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -35,9 +28,9 @@ public class Candle : MonoBehaviour
 
             flame.transform.localScale = Vector3.Lerp(flame.transform.localScale, Vector3.one, Time.deltaTime);
 
-            light.intensity = Mathf.Lerp(light.intensity, 1.5f, Time.deltaTime * 2);
+            flameLight.intensity = Mathf.Lerp(flameLight.intensity, 1.5f, Time.deltaTime * 2);
 
-            if (light.intensity > (intensity - 0.001f)) lit = true;
+            if (flameLight.intensity > (intensity - 0.001f)) lit = true;
         }
 
         if (lit)
@@ -45,7 +38,7 @@ public class Candle : MonoBehaviour
             pingPong = Mathf.PingPong(Time.time, 1);
 
             flame.transform.localScale = new Vector3(1 + (pingPong/10), 1 + (pingPong/10), 1 + (pingPong/10));
-            light.intensity = (intensity - 0.5f) + pingPong;
+            flameLight.intensity = (intensity - 0.5f) + pingPong;
 
         }
 

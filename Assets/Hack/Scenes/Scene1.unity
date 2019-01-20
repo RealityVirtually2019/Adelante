@@ -538,6 +538,29 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 114000011983135080, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+--- !u!1 &390528694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 390528693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &390528695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390528694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ae67f0ba9ffe54f9f24762d0a762fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLevel: 0
+  sceneNames:
+  - BlocksScene
+  - CandleScene
+  - Scene1
 --- !u!1001 &485737535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1700,6 +1723,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.82500005
       objectReference: {fileID: 0}
+    - target: {fileID: 64282036212903350, guid: bfa3cc1e2c9222848a50ba17f8e0d64b,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 205447241113997142, guid: bfa3cc1e2c9222848a50ba17f8e0d64b,
         type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
@@ -1709,11 +1737,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
       value: 0.46947023
-      objectReference: {fileID: 0}
-    - target: {fileID: 64282036212903350, guid: bfa3cc1e2c9222848a50ba17f8e0d64b,
-        type: 3}
-      propertyPath: m_Convex
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
