@@ -46,12 +46,18 @@ public class SceneHandler : MonoBehaviour
         {
             locationHandler.StartLocation();
         }
-        else if (locationHandler.finished && !SteamVR_LoadLevel.loading && locationIdx < sceneNames.Length)
+        else if (locationHandler.finished && !SteamVR_LoadLevel.loading)
         {
             locationIdx++;
-            Debug.Log("Load scene [" + locationIdx + "]: " + sceneNames[locationIdx]);
-            SteamVR_LoadLevel.Begin(sceneNames[locationIdx]);
-            locationHandler = null;
+            if (locationIdx < sceneNames.Length)
+            {
+
+                Debug.Log("Load scene [" + locationIdx + "]: " + sceneNames[locationIdx]);
+                SteamVR_LoadLevel.Begin(sceneNames[locationIdx]);
+                locationHandler = null;
+
+            }
+
         }
 
     }
