@@ -52,7 +52,7 @@ public class SceneHandler : MonoBehaviour
             if (locationIdx < sceneNames.Length)
             {
 
-                Debug.Log("Load scene [" + locationIdx + "]: " + sceneNames[locationIdx]);
+                //Debug.Log("Load scene [" + locationIdx + "]: " + sceneNames[locationIdx]);
                 SteamVR_LoadLevel.Begin(sceneNames[locationIdx]);
                 locationHandler = null;
 

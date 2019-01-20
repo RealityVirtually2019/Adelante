@@ -324,7 +324,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f36e356636d67914aac1d60c5cbe9a91, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7db0e782f6f0aed43a5b6c8257717d5e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.845
   m_Pitch: 1
@@ -705,7 +705,6 @@ MonoBehaviour:
   audioDelay: 3
   narrationBuffer: 1
   locationDelay: 10
-  music: {fileID: 0}
   narration: {fileID: 276270348}
   effect: {fileID: 122051762}
   started: 0
