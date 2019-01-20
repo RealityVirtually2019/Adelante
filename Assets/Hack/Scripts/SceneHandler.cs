@@ -5,17 +5,22 @@ using UnityEngine;
 public class SceneHandler : MonoBehaviour
 {
 
-    public string[] sceneNames = new string[3]
+    private string[] sceneNames = new string[9]
     {
         "Adelante Scene 1",
         "Adelante Scene 2",
-        "Adelante Scene 3"
+        "Adelante Scene 3",
+        "Adelante Scene 4",
+        "Adelante Scene 5",
+        "Adelante Scene 6",
+        "Adelante Scene 7",
+        "Adelante Scene 8",
+        "Adelante Scene 9",
     };
 
     private static SceneHandler sh = null;
 
-    public GameObject[] locations = new GameObject[9];
-    private LocationHandler[] locationHandlers = new LocationHandler[9];
+    private LocationHandler locationHandler;
 
     private int locationIdx = 0;
 
@@ -26,16 +31,6 @@ public class SceneHandler : MonoBehaviour
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
 
-        foreach( GameObject location in locations)
-        {
-            locationIdx++;
-            location.SetActive(false);
-            locationHandlers[locationIdx] = location.GetComponent<LocationHandler>();
-        }
-
-        locations[locationIdx].SetActive(true);
-        locationHandlers[locationIdx].StartLocation();
-
     }
     
 
@@ -43,18 +38,21 @@ public class SceneHandler : MonoBehaviour
     void Update()
     {
 
-        if (locationHandlers[locationIdx].finished)
+        if (locationHandler == null)
         {
-            locations[locationIdx].SetActive(false);
-            locationIdx++;
-            locations[locationIdx].SetActive(true);
-            locationHandlers[locationIdx].StartLocation();
+            locationHandler = GameObject.Find("Location").GetComponent<LocationHandler>();
         }
-
-        //else if (location3handler.finished)
-        //{
-        //    SteamVR_LoadLevel.Begin("Adelante Scene 2");
-        //}
+        else if (locationHandler != null && !locationHandler.started)
+        {
+            locationHandler.StartLocation();
+        }
+        else if (locationHandler.finished && !SteamVR_LoadLevel.loading && locationIdx < sceneNames.Length)
+        {
+            locationIdx++;
+            Debug.Log("Load scene [" + locationIdx + "]: " + sceneNames[locationIdx]);
+            SteamVR_LoadLevel.Begin(sceneNames[locationIdx]);
+            locationHandler = null;
+        }
 
     }
 

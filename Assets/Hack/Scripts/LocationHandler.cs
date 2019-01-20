@@ -14,12 +14,15 @@ public class LocationHandler : MonoBehaviour
     public AudioSource narration;
     public AudioSource effect;
 
+    public bool started = false;
     public bool finished = false;
 
     public void StartLocation()
     {
 
-        StartCoroutine(ExecuteAfterTime(audioDelay, narration, effect));
+        started = true;
+        //StartCoroutine(ExecuteAfterTime(audioDelay, narration, effect));
+        StartCoroutine(DebugTime());
 
     }
 
@@ -46,4 +49,13 @@ public class LocationHandler : MonoBehaviour
 
     }
 
+    IEnumerator DebugTime()
+    {
+
+        Debug.Log("Started location");
+        yield return new WaitForSeconds(3);
+        finished = true;
+        Debug.Log("Finished location");
+
+    }
 }

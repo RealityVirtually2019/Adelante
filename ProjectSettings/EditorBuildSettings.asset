@@ -10,8 +10,26 @@ EditorBuildSettings:
     guid: 4c577bfbaa847304299542137535f4d3
   - enabled: 1
     path: Assets/Hack/Scenes/Adelante Scene 2.unity
-    guid: cdcf35fb7cffa9c4a8e4ff056c323249
+    guid: 980fedb78c50a8848abfc07afb315f3b
   - enabled: 1
     path: Assets/Hack/Scenes/Adelante Scene 3.unity
+    guid: 6aa9fe48521686a4e8ba9c176d763eba
+  - enabled: 1
+    path: Assets/Hack/Scenes/Adelante Scene 4.unity
+    guid: cdcf35fb7cffa9c4a8e4ff056c323249
+  - enabled: 1
+    path: Assets/Hack/Scenes/Adelante Scene 5.unity
+    guid: 952072a8855410f4e84d212e3d5d5541
+  - enabled: 1
+    path: Assets/Hack/Scenes/Adelante Scene 6.unity
+    guid: 35804c6d6bfaed14b9f208a9e8c8301b
+  - enabled: 1
+    path: Assets/Hack/Scenes/Adelante Scene 7.unity
     guid: 7e1e4994786d488418bdf3ad01ced229
+  - enabled: 1
+    path: Assets/Hack/Scenes/Adelante Scene 8.unity
+    guid: cc3f2d2125acdad4986d62811d01ed17
+  - enabled: 1
+    path: Assets/Hack/Scenes/Adelante Scene 9.unity
+    guid: 4bdd8f44622758443a66f6131933d8c2
   m_configObjects: {}
