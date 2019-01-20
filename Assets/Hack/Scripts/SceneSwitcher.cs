@@ -8,9 +8,9 @@ public class SceneSwitcher : MonoBehaviour {
 
     public string[] sceneNames = new string[3]
     {
-        "BlocksScene",
-        "CandleScene",
-        "Scene1"
+        "Adelante Scene 1",
+        "Adelante Scene 2",
+        "Adelante Scene 3"
     };
 
     private static SceneSwitcher ss = null;
@@ -46,7 +46,7 @@ public class SceneSwitcher : MonoBehaviour {
     bool SceneKeyPressed()
     {
 
-        return false;// Input.anyKeyDown;
+        return Input.GetKey(KeyCode.Space);
 
     }
 

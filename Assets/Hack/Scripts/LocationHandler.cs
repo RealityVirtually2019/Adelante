@@ -20,7 +20,7 @@ public class LocationHandler : MonoBehaviour
     void Start()
     {
 
-        StartCoroutine(ExecuteAfterTime(audioDelay, narration, effect));
+        // StartCoroutine(ExecuteAfterTime(audioDelay, narration, effect));
 
     }
 

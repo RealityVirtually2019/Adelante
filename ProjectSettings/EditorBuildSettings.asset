@@ -4,4 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Hack/Scenes/Adelante Scene 1.unity
+    guid: 4c577bfbaa847304299542137535f4d3
+  - enabled: 1
+    path: Assets/Hack/Scenes/Adelante Scene 2.unity
+    guid: cdcf35fb7cffa9c4a8e4ff056c323249
+  - enabled: 1
+    path: Assets/Hack/Scenes/Adelante Scene 3.unity
+    guid: 7e1e4994786d488418bdf3ad01ced229
+  m_configObjects: {}
