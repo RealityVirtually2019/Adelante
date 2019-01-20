@@ -14,15 +14,13 @@ public class LocationHandler : MonoBehaviour
     public AudioSource narration;
     public AudioSource effect;
 
-    public bool finished;
+    public bool finished = false;
 
     // Start is called before the first frame update
     void Start()
     {
 
         StartCoroutine(ExecuteAfterTime(audioDelay, narration, effect));
-
-        finished = true;
 
     }
 
@@ -44,6 +42,8 @@ public class LocationHandler : MonoBehaviour
         if (effect != null) effect.volume *= 4;
 
         yield return new WaitForSeconds(locationDelay);
+
+        finished = true;
 
     }
 
